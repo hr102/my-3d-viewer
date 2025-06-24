@@ -1,4 +1,3 @@
-
 import * as THREE from 'https://cdn.skypack.dev/three';
 import { OrbitControls } from 'https://cdn.skypack.dev/three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'https://cdn.skypack.dev/three/examples/jsm/loaders/GLTFLoader.js';
@@ -46,38 +45,4 @@ function init() {
     document.getElementById('rotateBtn').innerText = `Auto Rotate: ${autoRotate ? 'ON' : 'OFF'}`;
   };
 
-  document.getElementById('colorBtn').onclick = () => {
-    if (model) {
-      model.traverse(child => {
-        if (child.isMesh) {
-          child.material.color.setHex(Math.random() * 0xffffff);
-        }
-      });
-    }
-  };
-
-  document.getElementById('animBtn').onclick = () => {
-    if (mixer) mixer.timeScale = mixer.timeScale === 0 ? 1 : 0;
-  };
-
-  document.getElementById('bgPicker').oninput = (e) => {
-    scene.background = new THREE.Color(e.target.value);
-  };
-
-  document.getElementById('arBtn').onclick = () => {
-    alert('AR Mode: Use <model-viewer> or WebXR for AR!');
-  };
-}
-
-function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-}
-
-function animate() {
-  requestAnimationFrame(animate);
-  if (mixer) mixer.update(0.01);
-  controls.update();
-  renderer.render(scene, camera);
-}
+  document.getElementById('
